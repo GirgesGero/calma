@@ -544,13 +544,24 @@ function initReservationGenerator() {
 
     const message = `مرحباً مساحة CALMA 🌿\nأود تأكيد حجز جديد:\n• نوع المساحة: ${type}\n• عدد الأفراد: ${guests}\n• المشروب المفضل: ${drink}\n• ملاحظات: ${notes}`;
 
+// Security Helper: Escape HTML to prevent DOM XSS vulnerabilities
+function escapeHtml(str) {
+  if (typeof str !== 'string') return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
     if (previewBox) {
       previewBox.innerHTML = `
         <strong>معاينة الرسالة:</strong><br>
         مرحباً مساحة CALMA 🌿<br>
-        أود حجز: <span>${type}</span> (${guests})<br>
-        المشروب: <span>${drink}</span><br>
-        ملاحظات: ${notes}
+        أود حجز: <span>${escapeHtml(type)}</span> (${escapeHtml(guests)})<br>
+        المشروب: <span>${escapeHtml(drink)}</span><br>
+        ملاحظات: ${escapeHtml(notes)}
       `;
     }
 
@@ -650,10 +661,10 @@ function initCinematicHero() {
       this.pulsePhase = Math.random() * Math.PI * 2;
       
       const hues = [
-        'rgba(201, 147, 71,',   // #C99347 brand gold
-        'rgba(245, 199, 126,',  // brighter light gold
-        'rgba(255, 235, 195,',  // luminous gold sparkle
-        'rgba(200, 104, 60,'    // terracotta warm amber
+        'rgba(212, 175, 55,',   // #D4AF37 Royal Champagne Gold
+        'rgba(245, 208, 97,',   // #F5D061 Radiant Gold Shimmer
+        'rgba(255, 242, 205,',  // Luminous Diamond Sparkle
+        'rgba(224, 109, 59,'    // Radiant Amber Warmth
       ];
       this.colorPrefix = hues[Math.floor(Math.random() * hues.length)];
     }
@@ -687,7 +698,7 @@ function initCinematicHero() {
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       ctx.fillStyle = `${this.colorPrefix} ${this.alpha})`;
       ctx.shadowBlur = this.radius * 3;
-      ctx.shadowColor = 'rgba(201, 147, 71, 0.35)';
+      ctx.shadowColor = 'rgba(212, 175, 55, 0.35)';
       ctx.fill();
       ctx.shadowBlur = 0;
     }
