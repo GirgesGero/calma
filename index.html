@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CALMA - Coworking Space & Café | مساحة عمل وكافيه سانت تريز</title>
+  <meta name="description" content="مساحة العمل والدراسة الأكثر هدوءاً في القاهرة - سانت تريز. غرف خاصة، إنترنت فائق السرعة، ديكورات عصرية، ومنيو مشروبات يبدأ من 10 جنيه.">
+  <meta name="keywords" content="coworking space cairo, calma coworking space, كافيه سانت تريز, مساحة عمل شبرا, غرف اجتماعات, منيو كالمـا">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="CALMA - Coworking Space | Your Comfort Home is Here">
+  <meta property="og:description" content="اشتغل وذاكر طول اليوم برياحة ومن غير حسبة وقت.. هدوء، نت طيارة، ومشروبات تبدأ من 10 جنيه.">
+  <meta property="og:image" content="images/calma_logo.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/calma_logo.jpg" type="image/jpeg">
+
+  <!-- Google Fonts (Cairo for Arabic, Outfit for Latin) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================
+       Header & Navigation
+       ========================================================== -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand-logo">
+        <img src="images/calma_logo.jpg" alt="CALMA Logo">
+        <div class="brand-text">
+          <h1>CALMA</h1>
+          <span>Coworking Space</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">الرئيسية</a></li>
+          <li><a href="#services">المساحات</a></li>
+          <li><a href="#birthdays">أعياد الميلاد 🎉</a></li>
+          <li><a href="#menu">المنيو والأسعار</a></li>
+          <li><a href="#contact">الموقع والتواصل</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <div class="nav-live-indicator" title="المكان متاح ومفتوح لاستقبالكم الآن">
+          <div class="live-dot"></div>
+          <span>مفتوح الآن</span>
+        </div>
+        <button id="theme-toggle-btn" class="theme-switch-btn" aria-label="تبديل الوضع الفاتح/المظلم" title="تبديل الوضع الفاتح/المظلم">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="https://wa.me/201279874160?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AD%D8%AC%D8%B2%20%D9%81%D9%8A%20CALMA" 
+           target="_blank" 
+           class="btn btn-whatsapp nav-btn-wa">
+          <i class="fab fa-whatsapp"></i> احجز الآن
+        </a>
+        <button class="menu-toggle" id="menu-toggle-btn" aria-label="فتح القائمة">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================
+       Mobile Navigation Drawer & Backdrop
+       ========================================================== -->
+  <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="القائمة الجانبية">
+    <div class="drawer-header">
+      <a href="#home" class="brand-logo drawer-brand">
+        <img src="images/calma_logo.jpg" alt="CALMA Logo">
+        <div class="brand-text">
+          <h2>CALMA</h2>
+          <span>Coworking Space</span>
+        </div>
+      </a>
+      <button class="drawer-close-btn" id="drawer-close-btn" aria-label="إغلاق القائمة">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="drawer-live-status">
+      <div class="live-dot"></div>
+      <span>المكان متاح ومفتوح لاستقبالكم الآن</span>
+    </div>
+
+    <nav class="drawer-nav">
+      <ul class="drawer-links">
+        <li><a href="#home" class="drawer-link active"><i class="fas fa-home"></i> الرئيسية</a></li>
+        <li><a href="#about" class="drawer-link"><i class="fas fa-compass"></i> عن كالمـا</a></li>
+        <li><a href="#services" class="drawer-link"><i class="fas fa-layer-group"></i> المساحات والتجهيزات</a></li>
+        <li><a href="#birthdays" class="drawer-link"><i class="fas fa-birthday-cake"></i> عروض أعياد الميلاد <span class="drawer-badge" style="background:#e67e22;">باقات خاصة 🎉</span></a></li>
+        <li><a href="#menu" class="drawer-link"><i class="fas fa-mug-hot"></i> المنيو والأسعار <span class="drawer-badge">من 10 ج</span></a></li>
+        <li><a href="#reservation" class="drawer-link"><i class="fab fa-whatsapp"></i> حجز مكانك</a></li>
+        <li><a href="#gallery" class="drawer-link"><i class="fas fa-images"></i> معرض الصور الحقيقي</a></li>
+        <li><a href="#contact" class="drawer-link"><i class="fas fa-map-marked-alt"></i> العنوان والتواصل</a></li>
+      </ul>
+    </nav>
+
+    <div class="drawer-footer">
+      <a href="https://wa.me/201279874160?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AD%D8%AC%D8%B2%20%D9%81%D9%8A%20CALMA" 
+         target="_blank" 
+         class="btn btn-whatsapp w-100" style="display: flex; justify-content: center;">
+        <i class="fab fa-whatsapp"></i> حجز سريع عبر واتساب
+      </a>
+      <a href="tel:+201279874160" class="btn btn-outline w-100" style="margin-top: 10px; display: flex; justify-content: center;">
+        <i class="fas fa-phone-alt"></i> اتصل بنا: 01279874160
+      </a>
+      <div class="drawer-socials">
+        <a href="https://www.tiktok.com/@calma.co.working" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/calma9830/" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/people/CALMA-coworking-space/61578483268714/" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================
+       Hero Section (Cinematic Luxury, Deep Atmosphere & Powerful Motion)
+       ========================================================== -->
+  <section class="hero hero-cinematic" id="home">
+    <!-- Cinematic Golden Particle Embers Canvas -->
+    <canvas id="hero-particles" class="hero-particles-canvas"></canvas>
+
+    <!-- Multi-Layer Atmospheric Staging & Orbital Hologram -->
+    <div class="cinematic-bg-stage" aria-hidden="true">
+      <div class="cinematic-spotlight-top"></div>
+      <div class="cinematic-lens-flare"></div>
+      
+      <!-- Central Orbital Emblem & Glowing Portal -->
+      <div class="cinematic-portal-wrapper">
+        <div class="orbital-ring ring-outer"></div>
+        <div class="orbital-ring ring-middle"></div>
+        <div class="orbital-ring ring-inner"></div>
+        <div class="portal-brand-glow"></div>
+        <img src="images/calma_logo.jpg" alt="CALMA Logo Emblem" class="cinematic-logo-emblem">
+      </div>
+      
+      <div class="cinematic-vignette-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-cinematic-inner">
+        <!-- Top Cinematic Glowing Pill Badge -->
+        <div class="cinematic-badge">
+          <span class="badge-beacon">
+            <span class="beacon-ping"></span>
+            <span class="beacon-core"></span>
+          </span>
+          <span class="badge-text"><i class="fas fa-crown"></i> مساحة العمل والدراسة الأكثر فخامة وهدوءاً في سانت تريز</span>
+          <span class="badge-sparkle">✦</span>
+        </div>
+        
+        <!-- Cinematic Latin Kicker -->
+        <div class="cinematic-kicker">
+          <span class="kicker-line"></span>
+          <span class="kicker-text">CALMA • COWORKING SPACE & CAFÉ</span>
+          <span class="kicker-line"></span>
+        </div>
+
+        <!-- Grand Cinematic Headline with Flowing Liquid Gold Shimmer -->
+        <h1 class="cinematic-title">
+          <span class="title-lead">عالمك الهادئ للإنجاز والراحة..</span>
+          <span class="title-hero-highlight">
+            <span class="liquid-gold-text">من غير حسبة وقت</span>
+            <span class="shimmer-glint"></span>
+          </span>
+        </h1>
+        
+        <!-- Cinematic Subtitle Description -->
+        <p class="cinematic-desc">
+          بيئة عمل ومذاكرة راقية مصممة بأعلى معايير الهدوء النفسي والتركيز العالي. إنترنت فايبر فائق السرعة، غرف خاصة مكيفة للمذاكرة والاجتماعات، وأجواء استرخاء مع منيو مشروبات طازجة يبدأ من <strong>10 جنيه</strong> فقط.
+        </p>
+
+        <!-- Cinematic Action Buttons with Conic Border Beam & Shimmer Rays -->
+        <div class="cinematic-actions">
+          <a href="#reservation" class="btn btn-cinematic-primary">
+            <span class="border-beam"></span>
+            <i class="fab fa-whatsapp"></i>
+            <span>احجز مكانك في CALMA</span>
+            <i class="fas fa-arrow-left arrow-icon"></i>
+          </a>
+          
+          <a href="#menu" class="btn btn-cinematic-secondary">
+            <i class="fas fa-coffee"></i>
+            <span>استكشف المنيو والأسعار</span>
+            <span class="price-pill">من 10 ج</span>
+          </a>
+
+          <a href="#birthdays" class="btn btn-cinematic-bday">
+            <i class="fas fa-birthday-cake"></i>
+            <span>عروض أعياد الميلاد 🎉</span>
+          </a>
+        </div>
+
+        <!-- Cinematic 3D Floating Feature Portals (Interactive Glass Showcase) -->
+        <div class="cinematic-feature-grid">
+          <div class="cinema-card card-coffee">
+            <div class="cinema-card-glow"></div>
+            <div class="cinema-card-icon">
+              <i class="fas fa-mug-hot"></i>
+            </div>
+            <div class="cinema-card-content">
+              <h4>كافيه وضيافة متكاملة</h4>
+              <p>23 صنف ومشروب تبدأ من 10 ج.م</p>
+            </div>
+            <div class="cinema-card-sheen"></div>
+          </div>
+
+          <div class="cinema-card card-fiber">
+            <div class="cinema-card-glow"></div>
+            <div class="cinema-card-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div class="cinema-card-content">
+              <h4>إنترنت فايبر فائق السرعة</h4>
+              <p>سرعة فائقة وثبات للشغل والاجتماعات</p>
+            </div>
+            <div class="cinema-card-sheen"></div>
+          </div>
+
+          <div class="cinema-card card-rooms">
+            <div class="cinema-card-glow"></div>
+            <div class="cinema-card-icon">
+              <i class="fas fa-door-closed"></i>
+            </div>
+            <div class="cinema-card-content">
+              <h4>غرف خاصة وخصوصية 100%</h4>
+              <p>عزل صوتي تام للمذاكرة والميتنجز</p>
+            </div>
+            <div class="cinema-card-sheen"></div>
+          </div>
+
+          <div class="cinema-card card-birthday">
+            <div class="cinema-card-glow"></div>
+            <span class="card-tag">عرض خاص</span>
+            <div class="cinema-card-icon">
+              <i class="fas fa-birthday-cake"></i>
+            </div>
+            <div class="cinema-card-content">
+              <h4>حفلات أعياد الميلاد</h4>
+              <p>غرفة خاصة + إضاءات LED + ساوند سيستم</p>
+            </div>
+            <div class="cinema-card-sheen"></div>
+          </div>
+        </div>
+
+        <!-- Cinematic Serenity Sound Wave Visualizer Strip -->
+        <div class="cinematic-audio-bar">
+          <div class="audio-wave" title="أجواء هدوء وموسيقى Lo-Fi">
+            <span class="wave-bar b1"></span>
+            <span class="wave-bar b2"></span>
+            <span class="wave-bar b3"></span>
+            <span class="wave-bar b4"></span>
+            <span class="wave-bar b5"></span>
+            <span class="wave-bar b6"></span>
+            <span class="wave-bar b7"></span>
+          </div>
+          <div class="audio-info">
+            <span class="audio-tag"><i class="fas fa-headphones-alt"></i> Calma Vibe</span>
+            <span class="audio-desc">أجواء هدوء سينمائية مريحة للأعصاب • خطوات معدودة من محطة مترو سانت تريز</span>
+          </div>
+          <div class="metro-badge">
+            <i class="fas fa-subway"></i> 3 دقائق من المترو
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       Social Hub Strip
+       ========================================================== -->
+  <section class="social-strip">
+    <div class="container">
+      <div class="social-grid">
+        <a href="https://www.tiktok.com/@calma.co.working" target="_blank" rel="noopener noreferrer" class="social-card">
+          <div class="social-icon-box icon-tiktok">
+            <i class="fab fa-tiktok"></i>
+          </div>
+          <div class="social-meta">
+            <h4>TikTok Official</h4>
+            <p>تابعنا: <span class="stat">~4,000 متابع • 22K لايك</span></p>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/calma9830/" target="_blank" rel="noopener noreferrer" class="social-card">
+          <div class="social-icon-box icon-instagram">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <div class="social-meta">
+            <h4>Instagram Gallery</h4>
+            <p>قصص الزوار: <span class="stat">#Our_Guests</span></p>
+          </div>
+        </a>
+
+        <a href="https://www.facebook.com/people/CALMA-coworking-space/61578483268714/" target="_blank" rel="noopener noreferrer" class="social-card">
+          <div class="social-icon-box icon-facebook">
+            <i class="fab fa-facebook-f"></i>
+          </div>
+          <div class="social-meta">
+            <h4>Facebook Page</h4>
+            <p>مجتمع كالمـا: <span class="stat">600+ متابع ونشاط دائم</span></p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       About Section
+       ========================================================== -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-visual">
+        <img src="images/calma_photo_03.jpg" alt="CALMA Interior" class="about-img-main">
+        <div class="about-floating-card">
+          <h4>مفهوم CALMA</h4>
+          <p>كلمة إسبانية تعني الهدوء والسكينة.. مساحة مخصصة للهروب من الضوضاء والتركيز في أهدافك.</p>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <div class="section-tag"><i class="fas fa-compass"></i> لماذا كالمـا؟</div>
+        <h2 class="section-title">بيتك الثاني للعمل <span>والدراسة براحة بال</span></h2>
+        <p>
+          في <strong>CALMA Coworking Space</strong>، نؤمن أن الإبداع والإنجاز يحتاجان إلى بيئة ملهمة ومريحة تمنحك شعور التواجد في منزلك الخاص ولكن بإنتاجية مضاعفة.
+        </p>
+        <p>
+          وداعاً لزحام الكافيهات، انقطاع الإنترنت، أو فواتير المشروبات المرتفعة. هنا تجد كل ما تحتاجه لإنجاز عملك، دراستك الجامعية، أو عقد جلساتك التدريبية بكل احترافية.
+        </p>
+
+        <div class="about-pillars">
+          <div class="pillar-item">
+            <i class="fas fa-chair pillar-icon"></i>
+            <div>
+              <h4>مقاعد مريحة وإضاءة هادئة</h4>
+              <p>مصممة لساعات الجلوس الطويلة دون تعب.</p>
+            </div>
+          </div>
+          <div class="pillar-item">
+            <i class="fas fa-bolt pillar-icon"></i>
+            <div>
+              <h4>فيش كهرباء متعددة</h4>
+              <p>شواحن لكل مقعد ومكتب دون عناء البحث.</p>
+            </div>
+          </div>
+          <div class="pillar-item">
+            <i class="fas fa-camera-retro pillar-icon"></i>
+            <div>
+              <h4>ديكورات تصوير عصرية</h4>
+              <p>أماكن مميزة لصناع المحتوى والتقاط الصور.</p>
+            </div>
+          </div>
+          <div class="pillar-item">
+            <i class="fas fa-users-cog pillar-icon"></i>
+            <div>
+              <h4>فريق عمل ودود ومساعد</h4>
+              <p>جاهز لتلبية طلباتك وضمان هدوء المكان.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#services" class="btn btn-primary">
+          تعرف على المساحات المتاحة <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       Services & Spaces Section
+       ========================================================== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag"><i class="fas fa-layer-group"></i> المساحات والتجهيزات</div>
+        <h2 class="section-title">مساحات مصممة <span>لتناسب كل احتياجاتك</span></h2>
+        <p class="section-subtitle">
+          سواء كنت تبحث عن تركيز فردي، مذاكرة جماعية مع أصدقائك، أو غرفة اجتماعات مجهزة لشركتك.. لدينا المساحة المثالية لك.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-img-wrapper">
+            <img src="images/calma_photo_15.jpg" alt="Work Spaces">
+            <span class="service-badge">مساحات مفتوحة</span>
+          </div>
+          <div class="service-body">
+            <h3>مساحات العمل والدراسة المشتركة</h3>
+            <p>مقاعد فردية مجهزة ومكاتب واسعة تمنحك كامل الخصوصية والتركيز في دراستك أو شغلك عن بعد.</p>
+            <ul class="service-perks">
+              <li><span>✔</span> إنترنت فايبر عالي السرعة</li>
+              <li><span>✔</span> إضاءة مكتبية مريحة للعين</li>
+              <li><span>✔</span> تكييف مركزي وجو هادئ</li>
+            </ul>
+            <a href="https://wa.me/201279874160?text=%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%82%D8%B9%D8%AF%20%D9%81%D8%B1%D8%AF%D9%8A%20%D9%81%D9%8A%20CALMA" target="_blank" class="btn btn-outline" style="width: 100%;">
+              حجز مقعد فردي <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-img-wrapper">
+            <img src="images/calma_photo_05.jpg" alt="Private Rooms">
+            <span class="service-badge">خصوصية كاملة</span>
+          </div>
+          <div class="service-body">
+            <h3>الغرف الخاصة (Private Rooms)</h3>
+            <p>غرف مغلقة ومستقلة مثالية للاجتماعات، التدريس والمجموعات الدراسية، المقابلات، والورش التدريبية.</p>
+            <ul class="service-perks">
+              <li><span>✔</span> عزل صوتي وخصوصية تامة</li>
+              <li><span>✔</span> مساحات تسع المجموعات وفرق العمل</li>
+              <li><span>✔</span> طاولات وشاشات عرض للميتينج</li>
+            </ul>
+            <a href="https://wa.me/201279874160?text=%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%BA%D8%B1%D9%81%D8%A9%20%D8%AE%D8%A7%D8%B5%D8%A9%20Private%20Room%20%D9%81%D9%8A%20CALMA" target="_blank" class="btn btn-outline" style="width: 100%;">
+              حجز غرفة خاصة <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-img-wrapper">
+            <img src="images/calma_photo_18.jpg" alt="Games and Chill Zone">
+            <span class="service-badge">استراحة وترفيه</span>
+          </div>
+          <div class="service-body">
+            <h3>ركن الترفيه والاستراحة (Games Zone)</h3>
+            <p>منطقة مخصصة لتصفية الذهن وأخذ استراحة ممتعة بين ساعات التركيز، تحتوي على ألعاب ذكاء وشطرنج.</p>
+            <ul class="service-perks">
+              <li><span>✔</span> شطرنج وألعاب جماعية</li>
+              <li><span>✔</span> كافيه ومشروبات ساخنة وباردة</li>
+              <li><span>✔</span> كنب مريح للاسترخاء والحديث</li>
+            </ul>
+            <a href="#menu" class="btn btn-outline" style="width: 100%;">
+              عرض قائمة المشروبات <i class="fas fa-coffee"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card service-card-highlight">
+          <div class="service-img-wrapper">
+            <img src="images/calma_photo_19.jpg" alt="Birthday Parties and Celebrations">
+            <span class="service-badge" style="background: linear-gradient(135deg, #e67e22, #d35400); color: #fff;">🎉 عروض أعياد الميلاد</span>
+          </div>
+          <div class="service-body">
+            <h3>حفلات أعياد الميلاد والمناسبات الخاصة</h3>
+            <p>احتفل بأجمل يوم في السنة بخصوصية تامة! نوفر لك قاعة مجهزة بديكورات سينمائية، إضاءة هادئة، وساوند سيستم لأغانيك بأسعار اقتصادية وعروض خاصة تناسب الجميع.</p>
+            <ul class="service-perks">
+              <li><span>✔</span> خصوصية كاملة للغرفة وقفل الباب لاحتفالكم</li>
+              <li><span>✔</span> ديكورات تصوير وجدار جرائد مميز بالليد الدافئ</li>
+              <li><span>✔</span> مسموح بإحضار التورتة مع توفير مستلزمات التقديم</li>
+              <li><span>✔</span> مشروبات تبدأ من 10 ج وباقات خاصة وموفرة</li>
+            </ul>
+            <a href="https://wa.me/201279874160?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D8%B1%D9%88%D8%B6%20%D9%88%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D8%A3%D8%B9%D9%8A%D8%A7%D8%AF%20%D8%A7%D9%84%D9%85%D9%8A%D9%84%D8%A7%D8%AF%20%D9%81%D9%8A%20CALMA" target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+              استفسر عن عروض أعياد الميلاد <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       Special Birthday Celebration Promo Banner
+       ========================================================== -->
+  <section class="birthday-promo-section" id="birthdays">
+    <div class="container">
+      <div class="birthday-banner-card">
+        <div class="birthday-visual">
+          <img src="images/calma_photo_19.jpg" alt="CALMA Birthday Celebration Space">
+          <div class="birthday-badge-floating">
+            <i class="fas fa-gift"></i> باقات توفير خاصة لأعياد الميلاد
+          </div>
+        </div>
+        <div class="birthday-content">
+          <div class="birthday-tag">
+            <i class="fas fa-birthday-cake"></i> عروض ومفاجآت كالمـا الحصرية
+          </div>
+          <h2 class="birthday-title">
+            احتفل بأحلى عيد ميلاد في CALMA.. <span>بأجواء خيالية وأسعار على قد الإيد!</span>
+          </h2>
+          <p class="birthday-desc">
+            زهقت من دوشة وزحام الكافيهات والأسعار المبالغ فيها؟ في <strong>CALMA</strong> بنقدملك تجربة عيد ميلاد استثنائية! بنجهزلك الغرفة بالكامل بديكورات راقية وإضاءة تصوير دافئة وسينمائية، مع ساوند سيستم لتشغيل أغانيك المفضلة، وخصوصية تامة 100% ليك ولصحابك عشان تفرحوا براحتكم.. مع مشروبات وسناكس المنيو بأسعار تبدأ من 10 جنيه بس!
+          </p>
+          <div class="birthday-features-list">
+            <div class="b-feature"><i class="fas fa-check-circle"></i> غرفة خاصة مستقلة مقفولة بالكامل</div>
+            <div class="b-feature"><i class="fas fa-check-circle"></i> ركن تصوير مميز وجدار جرائد بإضاءة الليد</div>
+            <div class="b-feature"><i class="fas fa-check-circle"></i> إمكانية إحضار التورتة مع توفير أطباق التقديم</div>
+            <div class="b-feature"><i class="fas fa-check-circle"></i> منيو مشروبات طازجة يبدأ من 10 جنيه فقط</div>
+            <div class="b-feature"><i class="fas fa-check-circle"></i> ساوند سيستم وشاشة لعرض الصور والذكريات</div>
+            <div class="b-feature"><i class="fas fa-check-circle"></i> باقات أسعار اقتصادية مخفضة للطلاب والشباب</div>
+          </div>
+          <div class="birthday-cta-group">
+            <a href="https://wa.me/201279874160?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D8%B1%D9%88%D8%B6%20%D9%88%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D8%A3%D8%B9%D9%8A%D8%A7%D8%AF%20%D8%A7%D9%84%D9%85%D9%8A%D9%84%D8%A7%D8%AF%20%D9%81%D9%8A%20CALMA" 
+               target="_blank" 
+               class="btn btn-whatsapp" 
+               style="padding: 13px 28px; font-size: 1.05rem;">
+              <i class="fab fa-whatsapp"></i> استفسر عن باقات أعياد الميلاد عبر واتساب
+            </a>
+            <a href="tel:+201279874160" class="btn btn-outline" style="padding: 13px 22px;">
+              <i class="fas fa-phone-alt"></i> 01279874160
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       Interactive Menu Section
+       ========================================================== -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag"><i class="fas fa-mug-hot"></i> كافيه كالمـا</div>
+        <h2 class="section-title">منيو المشروبات والسناكس <span>بأسعار تبدأ من 10 ج</span></h2>
+        <p class="section-subtitle">
+          استمتع بمشروبك المفضل طازجاً ومُعداً بعناية أثناء المذاكرة أو العمل، دون مصاريف إضافية مبالغ فيها.
+        </p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="menu-filter-bar">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fas fa-border-all"></i> الكل (23 صنف)
+        </button>
+        <button class="filter-btn" data-filter="hot">
+          <i class="fas fa-mug-hot"></i> مشروبات ساخنة (Hot Drinks)
+        </button>
+        <button class="filter-btn" data-filter="cold">
+          <i class="fas fa-glass-whiskey"></i> مشروبات باردة (Cold Drinks)
+        </button>
+        <button class="filter-btn" data-filter="snacks">
+          <i class="fas fa-bowl-rice"></i> سناكس (Snacks)
+        </button>
+      </div>
+
+      <!-- Search Input -->
+      <div class="menu-search-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="menu-search" class="menu-search-input" placeholder="ابحث باسم المشروب (قهوة، لاتيه، شاي، سبرايت...)">
+      </div>
+
+      <!-- Menu Items Grid (Rendered by JS) -->
+      <div class="menu-grid" id="menu-items-grid">
+        <!-- Dynamic Content from JS -->
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       WhatsApp Reservation Generator Section
+       ========================================================== -->
+  <section class="reservation-section" id="reservation">
+    <div class="container">
+      <div class="reservation-box">
+        <div class="text-center">
+          <div class="section-tag"><i class="fab fa-whatsapp"></i> حجز سريع بضغطة زر</div>
+          <h2 class="section-title" style="font-size: 2rem;">حجز مساحتك <span>وتحضير طلبك فوراً</span></h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            اختر تفاصيل حجزك وسنقوم بتجهيز رسالة واتساب منسقة ومباشرة لإرسالها لإدارة المكان فوراً.
+          </p>
+        </div>
+
+        <div class="res-form-grid">
+          <div class="form-group">
+            <label for="res-type"><i class="fas fa-chair" style="color: var(--accent-gold);"></i> نوع المساحة المطلوبة:</label>
+            <select id="res-type" class="form-control">
+              <option value="مقعد فردي بمساحة العمل المشتركة">مقعد فردي بمساحة العمل المشتركة</option>
+              <option value="غرفة خاصة (Private Room) للاجتماعات/المذاكرة">غرفة خاصة (Private Room) للاجتماعات/المذاكرة</option>
+              <option value="حفلة عيد ميلاد / مناسبة خاصة (عرض خاص)">🎉 حفلة عيد ميلاد / مناسبة خاصة (عرض خاص)</option>
+              <option value="جلسة ترفيه وشطرنج بالاستراحة">جلسة ترفيه وشطرنج بالاستراحة</option>
+              <option value="استفسار عام عن الباقات الشهرية">استفسار عام عن الباقات الشهرية</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="res-guests"><i class="fas fa-users" style="color: var(--accent-gold);"></i> عدد الأفراد:</label>
+            <select id="res-guests" class="form-control">
+              <option value="1 فرد">1 فرد (فردي)</option>
+              <option value="2 أفراد">2 أفراد</option>
+              <option value="3 إلى 5 أفراد">3 إلى 5 أفراد (مجموعة صغيرة)</option>
+              <option value="6 أفراد فأكثر">6 أفراد فأكثر (غرفة ورش واجتماعات)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="res-drink"><i class="fas fa-coffee" style="color: var(--accent-gold);"></i> مشروبك المفضل للتحضير:</label>
+            <select id="res-drink" class="form-control">
+              <!-- Populated by JS -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="res-notes"><i class="fas fa-clock" style="color: var(--accent-gold);"></i> موعد الوصول التقريبي أو ملاحظات:</label>
+            <input type="text" id="res-notes" class="form-control" placeholder="مثال: وصول الساعة 5 مساءً، نحتاج سبورة">
+          </div>
+        </div>
+
+        <div class="res-preview-box" id="res-preview-text">
+          <!-- Live Preview from JS -->
+        </div>
+
+        <div class="text-center">
+          <a href="#" id="res-submit-btn" target="_blank" class="btn btn-whatsapp" style="padding: 14px 34px; font-size: 1.1rem;">
+            <i class="fab fa-whatsapp"></i> إرسال الحجز عبر واتساب فوراً
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       Photo Gallery Section
+       ========================================================== -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag"><i class="fas fa-images"></i> جولة داخل كالمـا</div>
+        <h2 class="section-title">معرض صور <span>المكان الحقيقي</span></h2>
+        <p class="section-subtitle">
+          إليك لقطات واقعية من داخل أروقة وغرف CALMA، انقر على أي صورة لتكبيرها واستكشاف تفاصيل المكان.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" data-lightbox="images/calma_photo_18.jpg">
+          <img src="images/calma_photo_18.jpg" alt="CALMA Terrace Majlis" loading="lazy">
+          <div class="gallery-overlay"><span>تراس الجلسة العربي والاسترخاء في الهواء الطلق</span></div>
+        </div>
+        <div class="gallery-item" data-lightbox="images/calma_photo_14.jpg">
+          <img src="images/calma_photo_14.jpg" alt="Group Study Terrace" loading="lazy">
+          <div class="gallery-overlay"><span>جلسات المذاكرة والدراسة الجماعية بالبلكونة</span></div>
+        </div>
+        <div class="gallery-item" data-lightbox="images/calma_photo_16.jpg">
+          <img src="images/calma_photo_16.jpg" alt="Cozy Study Room" loading="lazy">
+          <div class="gallery-overlay"><span>غرف المذاكرة والعمل المشترك والتركيز</span></div>
+        </div>
+        <div class="gallery-item" data-lightbox="images/calma_photo_15.jpg">
+          <img src="images/calma_photo_15.jpg" alt="Quiet Work Corner" loading="lazy">
+          <div class="gallery-overlay"><span>ركن العمل الفردي الهادئ مع إضاءة مريحة</span></div>
+        </div>
+        <div class="gallery-item" data-lightbox="images/calma_photo_19.jpg">
+          <img src="images/calma_photo_19.jpg" alt="Photo Corner Wall" loading="lazy">
+          <div class="gallery-overlay"><span>ركن التصوير وجدار الجرائد العصرية بالإضاءة الدافئة</span></div>
+        </div>
+        <div class="gallery-item" data-lightbox="images/calma_photo_08.jpg">
+          <img src="images/calma_photo_08.jpg" alt="Vintage Music Wall" loading="lazy">
+          <div class="gallery-overlay"><span>جدار الموسيقى الكلاسيكية والنوستالجيا</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       Location & Contact Section
+       ========================================================== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag"><i class="fas fa-map-marked-alt"></i> تواصل معنا وزيارتنا</div>
+        <h2 class="section-title">موقعنا وطرق <span>التواصل المباشر</span></h2>
+        <p class="section-subtitle">
+          متواجدون دائماً لخدمتك والإجابة على استفساراتك، ونسعد باستقبالك في أي وقت.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Info Card -->
+        <div class="contact-info-card">
+          <div>
+            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 8px;">مساحة CALMA - سانت تريز</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              مكانك المثالي للمذاكرة والشغل بأسعار تناسب الجميع.
+            </p>
+
+            <ul class="contact-details-list">
+              <li class="contact-item">
+                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="contact-text">
+                  <h4>العنوان بالتفصيل</h4>
+                  <p>22 شارع جامع أبو الفضل - الساحل - سانت تريز، القاهرة (11511)</p>
+                  <p style="color: var(--accent-gold); font-size: 0.84rem; margin-top: 3px;">
+                    <i class="fas fa-subway"></i> خطوات من محطة مترو سانت تريز وقريب من شارع الترعة
+                  </p>
+                </div>
+              </li>
+
+              <li class="contact-item">
+                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <div class="contact-text">
+                  <h4>واتساب وهاتف الحجز</h4>
+                  <p><a href="https://wa.me/201279874160" target="_blank">+20 12 79874160</a></p>
+                </div>
+              </li>
+
+              <li class="contact-item">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <div class="contact-text">
+                  <h4>البريد الإلكتروني</h4>
+                  <p><a href="mailto:calma9830@gmail.com">calma9830@gmail.com</a></p>
+                </div>
+              </li>
+
+              <li class="contact-item">
+                <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                <div class="contact-text">
+                  <h4>أوقات العمل</h4>
+                  <p>يومياً من الصباح وحتى المساء لاستقبال الطلاب وفرق العمل</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="https://wa.me/201279874160" target="_blank" class="btn btn-whatsapp" style="flex: 1;">
+              <i class="fab fa-whatsapp"></i> محادثة واتساب
+            </a>
+            <a href="tel:+201279874160" class="btn btn-primary" style="flex: 1;">
+              <i class="fas fa-phone-alt"></i> اتصال هاتفي
+            </a>
+          </div>
+        </div>
+
+        <!-- Google Map Wrapper -->
+        <div class="map-wrapper">
+          <iframe 
+            src="https://maps.google.com/maps?q=Saint%20Therese%2C%20Cairo%2C%20Egypt&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            allowfullscreen="" 
+            loading="lazy" 
+            title="CALMA Location Map">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       Footer
+       ========================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="images/calma_logo.jpg" alt="CALMA Logo">
+            <div class="brand-text">
+              <h1>CALMA</h1>
+              <span>Coworking Space</span>
+            </div>
+          </div>
+          <p>
+            Your Comfort Home is Here. مساحة العمل والمذاكرة المشتركة الهادئة في قلب سانت تريز والساحل.
+          </p>
+          <div style="display: flex; gap: 14px; margin-top: 18px;">
+            <a href="https://www.tiktok.com/@calma.co.working" target="_blank" style="color: var(--accent-gold); font-size: 1.3rem;"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/calma9830/" target="_blank" style="color: var(--accent-gold); font-size: 1.3rem;"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/people/CALMA-coworking-space/61578483268714/" target="_blank" style="color: var(--accent-gold); font-size: 1.3rem;"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/201279874160" target="_blank" style="color: var(--accent-gold); font-size: 1.3rem;"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">عن كالمـا</a></li>
+            <li><a href="#services">المساحات والخدمات</a></li>
+            <li><a href="#birthdays">أعياد الميلاد والمناسبات 🎉</a></li>
+            <li><a href="#menu">قائمة المشروبات</a></li>
+            <li><a href="#gallery">معرض الصور</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>بيانات التواصل</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-left: 6px;"></i> 22 شارع جامع أبو الفضل - سانت تريز</li>
+            <li><i class="fab fa-whatsapp" style="color: var(--accent-gold); margin-left: 6px;"></i> +20 12 79874160</li>
+            <li><i class="fas fa-envelope" style="color: var(--accent-gold); margin-left: 6px;"></i> calma9830@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>جميع الحقوق محفوظة &copy; 2026 CALMA - Coworking Space & Café.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================
+       Floating Quick Action Buttons
+       ========================================================== -->
+  <div class="floating-actions">
+    <a href="https://wa.me/201279874160?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AD%D8%AC%D8%B2%20%D9%81%D9%8A%20CALMA" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="fab-btn fab-whatsapp" 
+       aria-label="تواصل عبر واتساب">
+      <i class="fab fa-whatsapp"></i>
+      <span class="fab-tooltip">محادثة واتساب سريعة</span>
+    </a>
+    <a href="tel:+201279874160" class="fab-btn fab-call" aria-label="اتصال هاتفي">
+      <i class="fas fa-phone-alt"></i>
+      <span class="fab-tooltip">اتصال مباشر: 01279874160</span>
+    </a>
+  </div>
+
+  <!-- ==========================================================
+       Lightbox Modal
+       ========================================================== -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="إغلاق">&times;</button>
+      <img src="" id="lightbox-img" alt="Zoomed View">
+    </div>
+  </div>
+
+  <!-- JavaScript Bundle -->
+  <script src="js/main.js"></script>
+</body>
+</html>
