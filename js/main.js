@@ -269,10 +269,24 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================== */
 function initThemeManager() {
   const themeBtn = document.getElementById('theme-toggle-btn');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const systemPrefersDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : { matches: true };
+
+  function getSafeTheme() {
+    try {
+      return localStorage.getItem('calma_theme');
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function setSafeTheme(val) {
+    try {
+      localStorage.setItem('calma_theme', val);
+    } catch (e) {}
+  }
 
   function getEffectiveTheme() {
-    const currentStored = localStorage.getItem('calma_theme');
+    const currentStored = getSafeTheme();
     if (currentStored === 'dark' || currentStored === 'light') {
       return currentStored;
     }
@@ -280,7 +294,7 @@ function initThemeManager() {
   }
 
   function applyTheme(theme) {
-    const currentStored = localStorage.getItem('calma_theme');
+    const currentStored = getSafeTheme();
     if (currentStored) {
       document.documentElement.setAttribute('data-theme', currentStored);
     } else {
@@ -309,11 +323,13 @@ function initThemeManager() {
   applyTheme(getEffectiveTheme());
 
   // Listen to Phone / Device OS theme changes in real-time
-  systemPrefersDark.addEventListener('change', (e) => {
-    if (!localStorage.getItem('calma_theme')) {
-      applyTheme(e.matches ? 'dark' : 'light');
-    }
-  });
+  if (systemPrefersDark.addEventListener) {
+    systemPrefersDark.addEventListener('change', (e) => {
+      if (!getSafeTheme()) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  }
 
   // Manual toggle click handler
   if (themeBtn) {
@@ -321,7 +337,7 @@ function initThemeManager() {
       const current = getEffectiveTheme();
       const newTheme = current === 'dark' ? 'light' : 'dark';
 
-      localStorage.setItem('calma_theme', newTheme);
+      setSafeTheme(newTheme);
       document.documentElement.setAttribute('data-theme', newTheme);
       updateThemeIcon(newTheme);
     });
